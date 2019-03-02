@@ -1,5 +1,5 @@
-const Discord = require("discord.js");
-  const neex = new Discord.Client();
+cconst Discord = require("discord.js");
+const client = new Discord.Client();
     const neextoken = "NDIzODg5Njk3MjE2MDA0MTA4.DvxQDA.OYlWq5jEl68vFoeIWNwHvdW2Skg"
       neex.on('ready', () => {
         neex.user.setGame(`GangUpForever`,'https://www.twitch.tv/TEST-Broadcast');

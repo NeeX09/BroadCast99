@@ -37,4 +37,4 @@ __تنبية__ : إذا أردت أن تمنشن العضو فقط أكتب با
 message.channel.sendEmbed(embed)}
 });
 
-client.login(process.env.BOT_TOKEN); 
+   client.login(process.env.BOT_TOKEN); 

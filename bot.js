@@ -1,50 +1,40 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-client.on('message', message => {
-  if(!message.channel.guild) return;
-var prefix = "$";
-if(message.content.startsWith(prefix + 'bc')) {
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
-let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let copy = "FeNiXo";
-let request = `Requested By ${message.author.username}`;
-if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
-msg.react('✅')
-.then(() => msg.react('❌'))
-.then(() =>msg.react('✅'))
-
-let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
-let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
-
-let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
-let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
-
-reaction1.on("collect", r => {
-message.channel.send(`☑ | Done ... The Broadcast Message Has Been Sent For ${message.guild.members.size} Members`).then(m => m.delete(5000));
-message.guild.members.forEach(m => {
-
-m.send(args)
-msg.delete();
-})
-})
-reaction2.on("collect", r => {
-message.channel.send(`**Broadcast Canceled.**`).then(m => m.delete(5000));
-msg.delete();
-})
-})
-}
+client.on('ready', () => {console.log(`Logged in as ${client.user.tag}!`);});
+const config = require('./config.json');
+const prefixbc = config.prefix;
+client.on('message', async message => {  
+if(message.author.bot) return;
+if(message.channel.type === 'dm') return;
+if(!message.guild.members.get(message.author.id).hasPermission('ADMINISTRATOR')) return;
+const args = message.content.split(" ").slice(1);
+if(message.content.startsWith(prefixbc + 'obc')) {  
+message.channel.send(`**:loudspeaker:  تم ارسال هذة الرسالة الى __${message.guild.memberCount}__ مشترك**`);
+message.guild.members.forEach(m => { 
+m.send(args.replace('[user]', m));
+});}
+if(message.content.startsWith(prefixbc + 'bc')) {  
+message.channel.send(`**:loudspeaker:  تم ارسال هذة الرسالة الى ${message.guild.members.filter(m => m.presence.status !== 'online').size}__ مشترك**`);
+message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+m.send(args.replace('[user]', m));
+});}
+if(message.content.startsWith(prefixbc + 'obc')) {  
+var role = message.mentions.roles.first();
+if(!role) {message.reply("لا توجد رتبة بهذا الاسم");return;}
+if(!args[0]) {
+message.channel.send(`قم بمنشنة الرتبة  | ${prefixbc}bcrole @admin message`);
+return;}
+message.channel.send(`**:loudspeaker:  تم ارسال هذة الرسالة الى __${role.members.size}__ مشترك**`);
+message.guild.members.filter(m => m.roles.get(role.id)).forEach(n => {
+n.send(args[1].replace('[user]', n));});}
+if(message.content.startsWith(prefixbc + "help")) {
+const embed = new Discord.RichEmbed() .setColor("RANDOM").setDescription(`**${prefixbc}obc ⇏ لإرسال رسالة إلى جميع أعضاء السيرفر
+${prefixbc}bc ⇏ لإرسال رسالة إلى الأعضاء الأونلاين فقط
+${prefixbc}bcrole ⇏  لإرسآل رسالة لرتبة محدده 
+ex :   ${prefixbc}bcrole @admin message
+__تنبية__ : إذا أردت أن تمنشن العضو فقط أكتب بالرسالة
+\`[user]\` وسيقوم بإستبدالها بمنشن العضو**`);
+message.channel.sendEmbed(embed)}
 });
 
-client.on('message', async msg => {
-    var p = "*"
-  if(msg.content.startsWith(p + "bc")) {
-   let args = msg.content.split(' ').slice(1).join(' ');
-        msg.guild.members.forEach(member => {
-   if(!msg.member.hasPermission('ADMINISTRATOR')) return;
-        member.send(args.replace(`[user]`, member)).catch();
-        })
- }
-    })
-    
-    client.login(process.env.BOT_TOKEN); 
+client.login(process.env.BOT_TOKEN); 

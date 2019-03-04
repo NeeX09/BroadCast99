@@ -11,7 +11,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`=bc |Gang Up Broadcast`,"http://twitch.tv/Death Shop")
+client.user.setGame(`=bc |GangUpForever <3`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 

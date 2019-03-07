@@ -11,7 +11,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`=bc |GangUpForever <3`,"http://twitch.tv/Death Shop")
+client.user.setGame(`=bc | GangUp❤`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
@@ -154,6 +154,7 @@ client.on("message", async message => {
             دعوة البوت لسيرفرك : ${prefix}invite
             معلومات عن السيرفر : ${prefix}server
             برودكاست للأونلاين فقط : ${prefix}bco
+                          مسح شات : ${prefix}clear 
             يعرض لك عدد المتبندين من سيرفرك : ${prefix}banned
             رابط سيرفر الدعم الفني : https://discord.gg/7mRgGCs
             **`);

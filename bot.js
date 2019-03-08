@@ -204,17 +204,5 @@ client.on("message", message => { //clear
             }, 6000);
 });
 
-var ourserver = `Gαɴɢ Up` ; 
-var ms = 8000; // سرعة التعديل على اسم الروم
-client.on('guildMemberAdd', async member => {
-    setInterval(function (){ 
-   client.channels.find('id', '553380191842336790').setName("Welcome To");
-   client.channels.find('id', '553380191842336790').setName(`${ourserver}`);    
-   client.channels.find('id', '553380191842336790').setName(`${member.user.tag}`);
-   
-    }, ms); 
-});
-
-
 
 client.login(process.env.BOT_TOKEN);

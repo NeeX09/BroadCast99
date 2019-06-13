@@ -148,7 +148,7 @@ client.on("message", async message => {
         let help = new Discord.RichEmbed()
             .setColor("RANDOM")
             .setThumbnail(message.author.avatarURL)
-            .setDescription(`**__برودكاست بوت | Version 1.1__ 
+            .setDescription(`**__برودكاست بوت | Version 1.0__ 
 
             برودكاست عادي : ${prefix}bc
             دعوة البوت لسيرفرك : ${prefix}invite
@@ -156,7 +156,7 @@ client.on("message", async message => {
             برودكاست للأونلاين فقط : ${prefix}bco
                           مسح شات : ${prefix}clear 
             يعرض لك عدد المتبندين من سيرفرك : ${prefix}banned
-            رابط سيرفر الدعم الفني : https://discord.gg/7mRgGCs
+            رابط سيرفر الدعم الفني : https://discord.gg/VUStgpS
             **`);
             message.channel.sendEmbed(help); // رابط السيرفر يعود الى سيرفر CODES .
     }
@@ -187,21 +187,21 @@ client.on("message", message => { //clear
 // move name of room 
         client.on("ready", async  => {
             setInterval(function(){
-                client.channels.find('id', '553671488859930650').setName("W");
-                client.channels.find('id', '553671488859930650').setName("We");
-                client.channels.find('id', '553671488859930650').setName("Wel");
-                client.channels.find('id', '553671488859930650').setName("Welc");
-                client.channels.find('id', '553671488859930650').setName("Welco");
-                client.channels.find('id', '553671488859930650').setName("Welcom");
-                client.channels.find('id', '553671488859930650').setName("Welcome");
-                client.channels.find('id', '553671488859930650').setName("Welcome T");
-                client.channels.find('id', '553671488859930650').setName("Welcome To");
-                client.channels.find('id', '553671488859930650').setName("Welcome To G");
-                client.channels.find('id', '553671488859930650').setName("Welcome To Ga");
-                client.channels.find('id', '553671488859930650').setName("Welcome To Gan");
-                client.channels.find('id', '553671488859930650').setName("Welcome To Gang");
-                client.channels.find('id', '553671488859930650').setName("Welcome To Gang Up");
-            }, 6000);
+                client.channels.find('id', '584173620859895808').setName("W");
+                client.channels.find('id', '584173620859895808').setName("We");
+                client.channels.find('id', '584173620859895808').setName("Wel");
+                client.channels.find('id', '584173620859895808').setName("Welc");
+                client.channels.find('id', '584173620859895808').setName("Welco");
+                client.channels.find('id', '584173620859895808').setName("Welcom");
+                client.channels.find('id', '584173620859895808').setName("Welcome");
+                client.channels.find('id', '584173620859895808').setName("Welcome T");
+                client.channels.find('id', '584173620859895808').setName("Welcome To");
+                client.channels.find('id', '584173620859895808').setName("Welcome To G");
+                client.channels.find('id', '584173620859895808').setName("Welcome To Ga");
+                client.channels.find('id', '584173620859895808').setName("Welcome To Gan");
+                client.channels.find('id', '584173620859895808').setName("Welcome To Gang");
+                client.channels.find('id', '584173620859895808').setName("Welcome To Gang Up");
+            }, 1000);
 });
 
 

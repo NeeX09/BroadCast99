@@ -6,16 +6,18 @@ const prefix = "=";
 
 client.on('ready', () => {
    console.log(`----------------`);
-      console.log(`Desert Bot- Script By : EX Clan`);
+      console.log(`Gang Bot- Script By : Gang Up`);
         console.log(`----------------`);
-      console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : Gang Up ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(`=bc | GangUp❤`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
-
+client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","Friends  ✔"));
+    });
 
 client.on("message", async message => {
     var command = message.content.split(" ")[0];

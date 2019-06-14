@@ -15,9 +15,6 @@ client.user.setGame(`=bc | GangUp❤`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
-client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","Friends  ✔"));
-    });
 
 client.on("message", async message => {
     var command = message.content.split(" ")[0];

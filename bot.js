@@ -183,25 +183,5 @@ client.on("message", message => { //clear
        
 });
 
-// move name of room 
-        client.on("ready", async  => {
-            setInterval(function(){
-                client.channels.find('id', '584173620859895808').setName("W");
-                client.channels.find('id', '584173620859895808').setName("We");
-                client.channels.find('id', '584173620859895808').setName("Wel");
-                client.channels.find('id', '584173620859895808').setName("Welc");
-                client.channels.find('id', '584173620859895808').setName("Welco");
-                client.channels.find('id', '584173620859895808').setName("Welcom");
-                client.channels.find('id', '584173620859895808').setName("Welcome");
-                client.channels.find('id', '584173620859895808').setName("Welcome T");
-                client.channels.find('id', '584173620859895808').setName("Welcome To");
-                client.channels.find('id', '584173620859895808').setName("Welcome To G");
-                client.channels.find('id', '584173620859895808').setName("Welcome To Ga");
-                client.channels.find('id', '584173620859895808').setName("Welcome To Gan");
-                client.channels.find('id', '584173620859895808').setName("Welcome To Gang");
-                client.channels.find('id', '584173620859895808').setName("Welcome To Gang Up");
-            }, 1000);
-});
-
 
 client.login(process.env.BOT_TOKEN);

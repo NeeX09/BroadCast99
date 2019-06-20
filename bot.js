@@ -23,12 +23,12 @@ client.on("message", async message => {
             var args = message.content.split(" ").slice(1).join(" ");
             if(command == "bc") {
                 if(!message.member.hasPermission("ADMINISTRATOR")) {
-                    return message.channel.send("**للأسف لا تمتلك صلاحية `ADMINISTRATOR`**");
+                    return message.channel.send("**Sorry You Dont Have `ADMINISTRATOR`**");
                 }
                     if(!args) {
-                        return message.reply("**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**");
+                        return message.reply("**You Need Type Something To Send Broadcast **");
                     }
-                        message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟\nمحتوى البرودكاست: \`${args}\`**`).then(m => {
+                        message.channel.send(`**Are you sure you want to send your Broadcast\n content Broadcast: \`${args}\`**`).then(m => {
                             m.react("✅")
                             .then(() => m.react("❌"));
 
@@ -62,12 +62,12 @@ client.on("message", async message => {
             }
             if(command == "bco") {
                 if(!message.member.hasPermission("ADMINISTRATOR")) {
-                    return message.channel.send("**للأسف لا تمتلك صلاحية `ADMINISTRATOR`**");
+                    return message.channel.send("**Sorry You Dont Have Permission `ADMINISTRATOR`**");
                 }
                     if(!args) {
-                        return message.reply("**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**");
+                        return message.reply("**You must type a word or phrase to send the Broadcast**");
                     }
-                        message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟\nمحتوى البرودكاست: \`${args}\`**`).then(m => {
+                        message.channel.send(`**Are you sure you want to send your Broadcast?\n content of the broadcast: \`${args}\`**`).then(m => {
                             m.react("✅")
                             .then(() => m.react("❌"));
 
@@ -107,7 +107,7 @@ client.on("message", async message => {
     if(message.content == prefix + "server") {
         if(!message.channel.guild) return;
             if(!message.member.hasPermission("MANAGE_GUILD")) {
-                return message.channel.send("ليس لديك الصلآحية الكآفية . :broken_heart:");
+                return message.channel.send("You do not have Perm . :broken_heart:");
             }
 
                 let server = new Discord.RichEmbed()
@@ -120,6 +120,7 @@ client.on("message", async message => {
 
     }
 });
+
 client.on("message", async message => {
     if(message.content.startsWith(prefix + "banned")) {
         if(!message.guild) return;
@@ -131,6 +132,7 @@ client.on("message", async message => {
         });
     }
 });
+
 client.on("message", async message => {
     if(message.content.startsWith(prefix + "invite")) {
         let invite = new Discord.RichEmbed()
@@ -142,37 +144,37 @@ client.on("message", async message => {
             message.channel.sendEmbed(invite);
     }
 });
+
 client.on("message", async message => {
     if(message.content.startsWith(prefix + "help")) {
         let help = new Discord.RichEmbed()
             .setColor("RANDOM")
             .setThumbnail(message.author.avatarURL)
-            .setDescription(`**__برودكاست بوت | Version 1.0__ 
+            .setDescription(`**__BroadCAST BOT | Version 2.0__ 
 
-            برودكاست عادي : ${prefix}bc
-            دعوة البوت لسيرفرك : ${prefix}invite
-            معلومات عن السيرفر : ${prefix}server
-            برودكاست للأونلاين فقط : ${prefix}bco
-                          مسح شات : ${prefix}clear 
-            يعرض لك عدد المتبندين من سيرفرك : ${prefix}banned
-            رابط سيرفر الدعم الفني : https://discord.gg/VUStgpS
+            Normal Broadcast : ${prefix}bc
+            Invite Bot To Your Server : ${prefix}invite
+            About Server : ${prefix}server
+            Broadcast For Online Members : ${prefix}bco
+            Clear The Chat : ${prefix}clear 
+            Show Bans : ${prefix}banned
+            Support Server : https://discord.gg/VUStgpS
             **`);
             message.channel.sendEmbed(help); // رابط السيرفر يعود الى سيرفر CODES .
     }
 });
 
-
 client.on("message", message => { //clear
               var args = message.content.substring(prefix.length).split(" ");
               if (message.content.startsWith(prefix + "clear")) {
-                  if(!message.channel.guild) return message.reply('**? اسف لكن هذا الامر للسيرفرات فقط **');         
-     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**?  لا يوجد لديك صلاحية لمسح الشات**');
+                  if(!message.channel.guild) return message.reply('**Sorry but this is only for servers**');         
+     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You do not have permission to delete chat**');
           var msg;
           msg = parseInt();
         
         message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
         message.channel.sendMessage("", {embed: {
-          title: "``تــم مسح الشات ``",
+          title: "``Chat Has Cleared``",
           color: 0x5016f3, 
           footer: {
             
